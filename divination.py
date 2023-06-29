@@ -7,7 +7,7 @@ attempts_total = 3
 attempts_count = 1
 
 while (attempts_count <= attempts_total):
-  print('Tentativa', attempts_count, 'de', attempts_total)
+  print('Tentativa {} de {}'.format(attempts_count, attempts_total))
   guessed_number = int(input('Digite um número: '))
 
   print('Você digitou: ', guessed_number)
