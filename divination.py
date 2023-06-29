@@ -4,10 +4,9 @@ print("*********************************")
 
 secret_number = 42
 attempts_total = 3
-attempts_count = 1
 
-while (attempts_count <= attempts_total):
-  print('Tentativa {} de {}'.format(attempts_count, attempts_total))
+for current_attempt in range(1, attempts_total + 1):
+  print('Tentativa {} de {}'.format(current_attempt, attempts_total))
   guessed_number = int(input('Digite um número: '))
 
   print('Você digitou: ', guessed_number)
@@ -18,7 +17,5 @@ while (attempts_count <= attempts_total):
     print('Você errou! o seu chute foi maior que o número secreto.')
   else:
     print('Você errou! o seu chute foi menor que o número secreto.')
-
-  attempts_count += 1
 
 print('Fim do jogo!')
