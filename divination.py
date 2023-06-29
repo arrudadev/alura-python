@@ -6,7 +6,19 @@ print("*********************************")
 
 # generate random number in range 1:100
 secret_number = randrange(1, 101)
-attempts_total = 3
+attempts_total = 0
+
+print('Qual o nível de dificuldade?')
+print('(1) Fácil (2) Médio (3) Difícil')
+
+difficultyLevel = int(input('Defina o nível: '))
+
+if (difficultyLevel == 1):
+  attempts_total = 20
+elif (difficultyLevel == 2):
+  attempts_total = 10
+else:
+  attempts_total = 5
 
 for current_attempt in range(1, attempts_total + 1):
   print('Tentativa {} de {}'.format(current_attempt, attempts_total))
