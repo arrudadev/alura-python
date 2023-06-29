@@ -47,3 +47,7 @@ def play():
 
       points -= abs(secret_number - guessed_number)
   print('Fim do jogo!')
+
+
+if (__name__ == "__main__"):
+  play()
