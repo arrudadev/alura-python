@@ -7,6 +7,7 @@ print("*********************************")
 # generate random number in range 1:100
 secret_number = randrange(1, 101)
 attempts_total = 0
+points = 1000
 
 print('Qual o nível de dificuldade?')
 print('(1) Fácil (2) Médio (3) Difícil')
@@ -32,11 +33,15 @@ for current_attempt in range(1, attempts_total + 1):
     continue
 
   if (secret_number == guessed_number):
-    print('Você acertou!')
+    print(f'Você acertou e fez {points} pontos!')
     break
+  elif (current_attempt == attempts_total):
+    print(f'o número secreto era {secret_number}. Você fez {points} pontos!')
   elif (guessed_number > secret_number):
     print('Você errou! o seu chute foi maior que o número secreto.')
   else:
     print('Você errou! o seu chute foi menor que o número secreto.')
+
+  points -= abs(secret_number - guessed_number)
 
 print('Fim do jogo!')
