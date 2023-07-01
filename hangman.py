@@ -4,8 +4,11 @@ def play():
   print("*********************************")
 
   secret_word = 'banana'
+  hit_letters = ['_', '_', '_', '_', '_', '_']
   hanged = False
   hit = False
+
+  print(hit_letters)
 
   while (not hit and not hanged):
     kick = input('Qual letra? ').strip()
@@ -13,8 +16,10 @@ def play():
     index = 0
     for letter in secret_word:
       if (kick.upper() == letter.upper()):
-        print(f'Encontrei a letra {letter.lower()} na posição {index}')
+        hit_letters[index] = letter
       index += 1
+
+    print(hit_letters)
 
 
 if (__name__ == "__main__"):
