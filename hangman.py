@@ -19,6 +19,9 @@ def play():
         hit_letters[index] = letter
       index += 1
 
+    missing_letters = str(hit_letters.count('_'))
+
+    print(f'Ainda faltam acertar {missing_letters}')
     print(hit_letters)
 
 
