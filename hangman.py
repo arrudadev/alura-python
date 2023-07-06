@@ -51,11 +51,46 @@ def print_missing_attempts(max_erros, errors):
   print(f'Faltam: {max_erros - errors} tentativa(s)!')
 
 
-def print_end_game(hit):
+def print_loser_message(secret_word):
+  print("Puxa, você foi enforcado!")
+  print("A palavra era {}".format(secret_word))
+  print("    _______________         ")
+  print("   /               \       ")
+  print("  /                 \      ")
+  print("//                   \/\  ")
+  print("\|   XXXX     XXXX   | /   ")
+  print(" |   XXXX     XXXX   |/     ")
+  print(" |   XXX       XXX   |      ")
+  print(" |                   |      ")
+  print(" \__      XXX      __/     ")
+  print("   |\     XXX     /|       ")
+  print("   | |           | |        ")
+  print("   | I I I I I I I |        ")
+  print("   |  I I I I I I  |        ")
+  print("   \_             _/       ")
+  print("     \_         _/         ")
+  print("       \_______/           ")
+
+
+def print_winner_message():
+  print("Parabéns, você ganhou!")
+  print("       ___________      ")
+  print("      '._==_==_=_.'     ")
+  print("      .-\\:      /-.    ")
+  print("     | (|:.     |) |    ")
+  print("      '-|:.     |-'     ")
+  print("        \\::.    /      ")
+  print("         '::. .'        ")
+  print("           ) (          ")
+  print("         _.' '._        ")
+  print("        '-------'       ")
+
+
+def print_end_game(hit, secret_word):
   if (hit):
-    print('Você ganhou!')
+    print_winner_message()
   else:
-    print('Você perdeu!')
+    print_loser_message(secret_word)
 
   print('Fim do Jogo!')
 
@@ -64,7 +99,7 @@ def play():
   print_opening_message()
 
   secret_word = get_secret_word()
-  hit_letters = get_hit_letters_initialized()
+  hit_letters = get_hit_letters_initialized(secret_word)
 
   hanged = False
   hit = False
@@ -81,8 +116,8 @@ def play():
     else:
       errors += 1
 
-    hanged = check_hanged()
-    hit = check_hit_secret_word()
+    hanged = check_hanged(max_erros, errors)
+    hit = check_hit_secret_word(hit_letters)
 
     if (not hit):
       print_missing_letters(hit_letters)
@@ -91,7 +126,7 @@ def play():
 
     print(hit_letters)
 
-  print_end_game()
+  print_end_game(hit, secret_word)
 
 
 if (__name__ == "__main__"):
