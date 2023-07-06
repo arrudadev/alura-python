@@ -1,10 +1,17 @@
+from random import randrange
+
+
 def play():
   print("*********************************")
   print("Bem vindo ao jogo da Forca!")
   print("*********************************")
 
-  secret_word = 'banana'.upper()
+  with open('words.txt', 'r') as words_file:
+    words = [word for word in words_file]
+
+  secret_word = words[randrange(0, len(words))].upper()
   hit_letters = ['_' for letter in secret_word]
+
   hanged = False
   hit = False
   errors = 0
