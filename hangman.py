@@ -95,6 +95,57 @@ def print_end_game(hit, secret_word):
   print('Fim do Jogo!')
 
 
+def draw_gallows(errors):
+  print("  _______     ")
+  print(" |/      |    ")
+
+  if (errors == 1):
+    print(" |      (_)   ")
+    print(" |            ")
+    print(" |            ")
+    print(" |            ")
+
+  if (errors == 2):
+    print(" |      (_)   ")
+    print(" |      \     ")
+    print(" |            ")
+    print(" |            ")
+
+  if (errors == 3):
+    print(" |      (_)   ")
+    print(" |      \|    ")
+    print(" |            ")
+    print(" |            ")
+
+  if (errors == 4):
+    print(" |      (_)   ")
+    print(" |      \|/   ")
+    print(" |            ")
+    print(" |            ")
+
+  if (errors == 5):
+    print(" |      (_)   ")
+    print(" |      \|/   ")
+    print(" |       |    ")
+    print(" |            ")
+
+  if (errors == 6):
+    print(" |      (_)   ")
+    print(" |      \|/   ")
+    print(" |       |    ")
+    print(" |      /     ")
+
+  if (errors == 7):
+    print(" |      (_)   ")
+    print(" |      \|/   ")
+    print(" |       |    ")
+    print(" |      / \   ")
+
+  print(" |            ")
+  print("_|___         ")
+  print()
+
+
 def play():
   print_opening_message()
 
@@ -104,7 +155,7 @@ def play():
   hanged = False
   hit = False
   errors = 0
-  max_erros = 6
+  max_erros = 7
 
   print(hit_letters)
 
@@ -115,6 +166,7 @@ def play():
       set_hit(hit_letters, secret_word, kick)
     else:
       errors += 1
+      draw_gallows(errors)
 
     hanged = check_hanged(max_erros, errors)
     hit = check_hit_secret_word(hit_letters)
