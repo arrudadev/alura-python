@@ -9,7 +9,7 @@ def print_opening_message():
 
 def get_secret_word():
   with open('words.txt', 'r') as words_file:
-    words = [word for word in words_file]
+    words = [word.strip() for word in words_file]
 
   return words[randrange(0, len(words))].upper()
 
